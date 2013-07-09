@@ -1,0 +1,9 @@
+#lang racket
+;; Returns the units digit of the integer n 
+(define (units-digit n) 
+  (remainder n 10))
+
+;; Returns all but the units digit of the integer n 
+(define (all-but-units-digit n) 
+  (quotient n 10))
+

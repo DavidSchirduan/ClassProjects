@@ -1,0 +1,25 @@
+!Test: All the cases of the case command indicated by the user.
+!Expected result: Depends on what the user selects.
+let 
+  var i:Integer;
+  var sum:Integer
+in
+	begin
+		i := 0;
+		while (i \= 99) do
+		begin
+			put('?');
+			put(':');
+			getint(var i);
+			case i of
+				1 : sum := 10;
+				2 : sum := 20;
+				3 : sum := 30;
+				else: sum := 40;
+			putint(i);
+			put('-');
+			put('>');
+			putint(sum);
+			puteol()
+		end
+	end

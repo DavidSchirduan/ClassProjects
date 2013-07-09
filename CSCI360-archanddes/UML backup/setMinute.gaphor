@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gaphor xmlns="http://gaphor.sourceforge.net/model" version="3.0" gaphor-version="0.17.0.dev-20110218">
+<Package id="26bf0ae8-42cb-11e0-8ad3-080027ec5725">
+<name>
+<val><![CDATA[New model]]></val>
+</name>
+<ownedClassifier>
+<reflist>
+<ref refid="33250eae-42cb-11e0-8ad3-080027ec5725"/>
+</reflist>
+</ownedClassifier>
+<ownedDiagram>
+<reflist>
+<ref refid="26c639c6-42cb-11e0-8ad3-080027ec5725"/>
+</reflist>
+</ownedDiagram>
+</Package>
+<Diagram id="26c639c6-42cb-11e0-8ad3-080027ec5725">
+<name>
+<val><![CDATA[main]]></val>
+</name>
+<package>
+<ref refid="26bf0ae8-42cb-11e0-8ad3-080027ec5725"/>
+</package>
+<canvas>
+<item type="InteractionItem" id="3331ef98-42cb-11e0-8ad3-080027ec5725">
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 37.0, 40.0)</val>
+</matrix>
+<width>
+<val>526.0</val>
+</width>
+<height>
+<val>286.0</val>
+</height>
+<subject>
+<ref refid="33250eae-42cb-11e0-8ad3-080027ec5725"/>
+</subject>
+<show_stereotypes_attrs>
+<val>0</val>
+</show_stereotypes_attrs>
+<item type="LifelineItem" id="d98e570a-42cb-11e0-8ad3-080027ec5725">
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 89.0, 63.0)</val>
+</matrix>
+<width>
+<val>100.0</val>
+</width>
+<height>
+<val>50.0</val>
+</height>
+<subject>
+<ref refid="d98e4dbe-42cb-11e0-8ad3-080027ec5725"/>
+</subject>
+<show_stereotypes_attrs>
+<val>0</val>
+</show_stereotypes_attrs>
+<lifetime-length>
+<val>135.0</val>
+</lifetime-length>
+</item>
+<item type="LifelineItem" id="f562103e-42cb-11e0-8ad3-080027ec5725">
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 368.0, 63.0)</val>
+</matrix>
+<width>
+<val>100.0</val>
+</width>
+<height>
+<val>50.0</val>
+</height>
+<subject>
+<ref refid="f562083c-42cb-11e0-8ad3-080027ec5725"/>
+</subject>
+<show_stereotypes_attrs>
+<val>0</val>
+</show_stereotypes_attrs>
+<lifetime-length>
+<val>142.0</val>
+</lifetime-length>
+</item>
+</item>
+<item type="MessageItem" id="322cdfd0-42cc-11e0-8ad3-080027ec5725">
+<subject>
+<ref refid="341c5686-42cc-11e0-8ad3-080027ec5725"/>
+</subject>
+<show_stereotypes_attrs>
+<val>0</val>
+</show_stereotypes_attrs>
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 177.0, 208.0)</val>
+</matrix>
+<orthogonal>
+<val>0</val>
+</orthogonal>
+<horizontal>
+<val>0</val>
+</horizontal>
+<points>
+<val>[(0.0, 0.0), (278.0, 1.0)]</val>
+</points>
+<tail-connection>
+<ref refid="f562103e-42cb-11e0-8ad3-080027ec5725"/>
+</tail-connection>
+</item>
+<item type="Box" id="533f13c2-42cd-11e0-816b-080027ec5725">
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 447.75, 212.0)</val>
+</matrix>
+<width>
+<val>14.5</val>
+</width>
+<height>
+<val>27.0</val>
+</height>
+</item>
+</canvas>
+</Diagram>
+<Interaction id="33250eae-42cb-11e0-8ad3-080027ec5725">
+<lifeline>
+<reflist>
+<ref refid="d98e4dbe-42cb-11e0-8ad3-080027ec5725"/>
+<ref refid="f562083c-42cb-11e0-8ad3-080027ec5725"/>
+</reflist>
+</lifeline>
+<name>
+<val><![CDATA[setMinute(minute)]]></val>
+</name>
+<package>
+<ref refid="26bf0ae8-42cb-11e0-8ad3-080027ec5725"/>
+</package>
+<presentation>
+<reflist>
+<ref refid="3331ef98-42cb-11e0-8ad3-080027ec5725"/>
+</reflist>
+</presentation>
+</Interaction>
+<Lifeline id="d98e4dbe-42cb-11e0-8ad3-080027ec5725">
+<interaction>
+<ref refid="33250eae-42cb-11e0-8ad3-080027ec5725"/>
+</interaction>
+<name>
+<val><![CDATA[:AlarmClock]]></val>
+</name>
+<presentation>
+<reflist>
+<ref refid="d98e570a-42cb-11e0-8ad3-080027ec5725"/>
+</reflist>
+</presentation>
+</Lifeline>
+<Lifeline id="f562083c-42cb-11e0-8ad3-080027ec5725">
+<coveredBy>
+<reflist>
+<ref refid="341e0cb0-42cc-11e0-8ad3-080027ec5725"/>
+</reflist>
+</coveredBy>
+<interaction>
+<ref refid="33250eae-42cb-11e0-8ad3-080027ec5725"/>
+</interaction>
+<name>
+<val><![CDATA[:Time]]></val>
+</name>
+<presentation>
+<reflist>
+<ref refid="f562103e-42cb-11e0-8ad3-080027ec5725"/>
+</reflist>
+</presentation>
+</Lifeline>
+<Message id="341c5686-42cc-11e0-8ad3-080027ec5725">
+<name>
+<val><![CDATA[setMinute(minute)]]></val>
+</name>
+<presentation>
+<reflist>
+<ref refid="322cdfd0-42cc-11e0-8ad3-080027ec5725"/>
+</reflist>
+</presentation>
+<receiveEvent>
+<ref refid="341e0cb0-42cc-11e0-8ad3-080027ec5725"/>
+</receiveEvent>
+</Message>
+<MessageOccurrenceSpecification id="341e0cb0-42cc-11e0-8ad3-080027ec5725">
+<covered>
+<ref refid="f562083c-42cb-11e0-8ad3-080027ec5725"/>
+</covered>
+<receiveMessage>
+<ref refid="341c5686-42cc-11e0-8ad3-080027ec5725"/>
+</receiveMessage>
+</MessageOccurrenceSpecification>
+</gaphor>

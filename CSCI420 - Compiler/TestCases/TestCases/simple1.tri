@@ -1,0 +1,11 @@
+! This tests the run-time index check. (Ex. 9.15)
+let
+        var name: array 4 of Char;
+        var i: Integer;
+	var j: Integer
+in
+        begin
+            i := 5;
+	          j := i;
+            name[i] := ' '
+        end

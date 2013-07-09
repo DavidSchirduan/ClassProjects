@@ -1,0 +1,14 @@
+#lang racket
+;;composition
+;create a function to next another function
+;;assumes x is the variable
+(define (composition f g)
+  (f g))
+
+(define (f x)
+  (+ x x))
+
+(define (g x)
+  (* x x))
+  
+  

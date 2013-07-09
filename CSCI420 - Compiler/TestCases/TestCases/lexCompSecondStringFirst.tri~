@@ -1,0 +1,15 @@
+!Test: Compare two strings where the second is lexicographically first.
+!Expected result: print F
+
+let
+	var a1 : string 4; !array 4 of Integer; 
+	var a2 : string 4 !array 4 of Integer;
+in
+begin
+	a1 := 'defg';
+	a2 := 'abcd';
+	if \(a1 << a2) then
+		put('F')
+	else
+		put('T')
+end

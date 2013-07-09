@@ -1,0 +1,13 @@
+let
+  var x : Integer
+in
+  begin
+    x := 1;
+    repeat  
+      begin
+        putint(x);
+        x := x + 1
+      end
+    until x > 10;
+  end  
+

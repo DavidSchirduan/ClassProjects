@@ -1,0 +1,10 @@
+! This tests the for command (Ex.9.6(b))
+let 
+  var i : Integer;
+  var sum : Integer
+in
+ begin
+ sum := 0;
+ for i from 1 to 12 do sum := sum + 1;
+ putint (sum) ! sum should be 12
+ end

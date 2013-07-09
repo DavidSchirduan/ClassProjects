@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=class\ Poodle
+comment0.text=\nclass\ Poodle\n\n@author\ (your\ name)\ \n@version\ (a\ version\ number\ or\ a\ date)\n\n
+comment1.params=
+comment1.target=void\ draw()
+comment1.text=\nmethod\ draw()\n\n@param\ \ none\n@return\ none\n\n
+comment2.params=name
+comment2.target=Poodle(String)
+comment2.text=\nConstructor\ for\ objects\ of\ class\ Poodle\n\n
+numComments=3

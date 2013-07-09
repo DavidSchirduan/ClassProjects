@@ -1,0 +1,15 @@
+!Test: Provide an expression that is false from the beginning
+!Expected result: The repeat is going to execute at least once before checking the expression. Prints 2
+
+let 
+  var i:Integer;
+  var sum : Integer
+in
+	begin
+		sum := 1;
+		repeat
+			sum := sum + 1;
+			putint(sum);
+			puteol()
+		until (sum > 0)
+	end

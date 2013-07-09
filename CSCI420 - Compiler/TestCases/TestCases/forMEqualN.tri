@@ -1,0 +1,10 @@
+!Test: For with M equal to N.
+!Expected result: Print number 1
+	begin
+		for i from 1 to 1 do
+		begin
+			putint(i);
+			puteol()			
+		end
+	end
+	

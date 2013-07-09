@@ -1,0 +1,16 @@
+!Test: Check that the use of an expression leading to an integer value is valid as
+!expression in the for command
+!Expected result: Print the number from 5 to 20.
+let 
+  var sum : Integer;
+  var A : Integer
+in
+	begin
+		A := 10/2;
+		sum := 0;
+		for i from A to 20 do
+		begin
+			sum := sum + 1;
+			putint(i)
+		end
+	end

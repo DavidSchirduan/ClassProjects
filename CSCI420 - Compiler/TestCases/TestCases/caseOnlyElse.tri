@@ -1,0 +1,11 @@
+!Test: A case with only an else selection
+!Expected result: Compilation error, there must be at least one IL option
+let 
+  var i:Integer;
+  var sum:Integer
+in
+	begin
+		case i of
+			else: sum := 99;
+		putint(sum);
+	end

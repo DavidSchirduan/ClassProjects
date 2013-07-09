@@ -1,0 +1,17 @@
+!Test: Try to access and out of bounds value of an array.
+!Expected result: Prints E
+let 
+	var myArray : array 4 of Char;
+	var i : Integer
+in
+	begin
+		i := 3;
+		myArray[0] := 'A';
+		myArray[1] := 'B';
+		myArray[2] := 'C';
+		myArray[3] := 'D';
+		
+		myArray[i] := 'E';
+		put(myArray[3])
+	end
+	

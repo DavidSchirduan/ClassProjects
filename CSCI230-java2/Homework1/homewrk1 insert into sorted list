@@ -1,0 +1,25 @@
+//Author: David Schirduan
+//insert into a sorted linked list
+node n = new Node() 
+
+if (h == null)
+	h = n
+else()
+	p = h
+	q = h.next
+	
+	while (q != null && q.keyField < key)
+		p = q
+		q = q.next
+		
+	if (p != null && p.keyField < key)
+		n.next = p.next
+		p.next = n
+		n.data = newListing.deepCopy()
+		
+	elseif(p.keyfield > key)
+		n.next = h
+		h = n
+	
+		
+		

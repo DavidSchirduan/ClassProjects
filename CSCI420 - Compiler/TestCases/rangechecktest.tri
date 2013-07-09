@@ -1,0 +1,8 @@
+let
+  var x : array 5 of Char;
+  var n : Integer
+in
+  begin
+    n := 6;
+    x[n] := '0'
+  end

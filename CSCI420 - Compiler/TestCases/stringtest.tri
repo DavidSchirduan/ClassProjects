@@ -1,0 +1,10 @@
+let
+  var n : string 5;
+  var x : Boolean
+in
+  begin
+    n := "Hello";
+    x := "Hello" = n;
+    if x = true then putint(1) else putint(0)
+  end
+

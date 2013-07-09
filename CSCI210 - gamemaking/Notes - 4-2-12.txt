@@ -1,0 +1,33 @@
+chapter 11 - Balancing
+
+Mechanics
+	space
+	objects with states
+	Actions
+	rules
+	skill
+	chance
+
+-Games contain most/all of these mechanics.
+
+-To determine Balance
+	-use magic numbers, and hope for the best. - BAD
+	-iteratively develop mechanics
+		-implement something, test, and refactor
+		
+Fairness - players start with a certain amount of power/resources
+
+1. Symetrically fair game - all players start with same resources
+	chess, checkers, Monopoly
+	-easily implemented
+	-can be problematic w/ players of different skill levels
+		-one player may be bored, the other frustrated
+		-go, golf, bowling - have a handicap to balance gameplay
+		
+	1. Players can explore game space differently - player classes
+	2. Player can match skills to resources
+	
+	
+Choice - Core component to game
+
+	-Game Theory - dominant strategy where one choice is optimal in all situations

@@ -1,0 +1,15 @@
+!Test: Create two variables of type stringN and copy the same values to both and then test for equal
+!Expected result: The variables are consider equal. Prints N
+
+let
+  var my : string 9;
+  var two : string 9
+in
+	begin
+		my := 'HI WORLD!';
+		two := 'HI WORLD!';
+		if (my \= two) then
+			put('E')
+		else
+			put('N');
+	end

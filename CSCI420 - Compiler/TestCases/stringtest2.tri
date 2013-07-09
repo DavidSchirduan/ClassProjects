@@ -1,0 +1,8 @@
+let
+  var n : string 5
+in
+  begin
+    n[1] := 'a';
+    put(n[1+0])
+  end
+

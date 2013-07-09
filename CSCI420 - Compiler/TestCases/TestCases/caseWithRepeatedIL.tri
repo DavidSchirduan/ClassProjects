@@ -1,0 +1,14 @@
+!Test: Case with repeated integer literals
+!Expected result: Compilation error indicating the problem.
+let 
+  var i:Integer;
+  var sum:Integer
+in
+	begin
+		case i of
+			1 : sum := 1;
+			2 : sum := 2;
+			1 : sum := 3;
+			2 : sum := 4;
+			else: sum := 99
+	end

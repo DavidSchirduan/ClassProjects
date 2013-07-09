@@ -1,0 +1,12 @@
+!Test: Invalid type of expression used in the repeat
+!Expected result: The error is catch in compilation time.
+let 
+  var i:Integer;
+  var sum : Integer
+in
+	begin
+		sum := 0;
+		repeat
+			sum := sum + 1
+		until (sum)
+	end

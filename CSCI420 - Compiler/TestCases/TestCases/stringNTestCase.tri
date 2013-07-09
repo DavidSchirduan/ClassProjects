@@ -1,0 +1,15 @@
+! This tests the string type (Ex.9.12a)
+let 
+  var mystr: string 10;
+  var mystr1: string 3;
+  var mystr2: string 3
+in
+ begin
+ mystr[1] := 'a';
+ mystr[2] := 'b';
+ put(mystr[2]);  ! should print b
+ mystr1 := "foo";
+ mystr2 := "bar";
+ if (mystr1 << mystr2) then putint(1) else putint(0);  ! Should print 0
+ if (mystr1 = mystr2) then putint(1) else putint(0) ! Should print 0
+ end

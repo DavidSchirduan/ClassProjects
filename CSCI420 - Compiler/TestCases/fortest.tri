@@ -1,0 +1,19 @@
+let
+  var n:= 2
+in
+  for x from 6 to 8 do
+    putint(x)
+
+//alrighty, so, breaking this down
+-recognize for, from, to, do
+-assign variables to X, then increase each variable through the loop.
+
+grab "for"
+-create variable X		//call it a constant, look at constant code
+grab "from"
+-assign x=6
+grab "to"
+compare x to 8 //maybe use a while loop, while X < 8
+grab "do"
+ACTION
+x = x + 1

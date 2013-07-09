@@ -1,0 +1,11 @@
+! This tests the repeat command (Ex.9.6(a))
+let 
+  var i: Integer; 
+  var sum : Integer
+in
+ begin
+ i := 1;
+ sum := 0;
+ repeat sum := sum + i until (sum > 10);
+ putint (sum)  ! sum should be 11
+ end

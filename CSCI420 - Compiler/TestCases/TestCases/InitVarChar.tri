@@ -1,0 +1,10 @@
+!Test: Variable initialized with a char value
+!Expected result: The charVar is used where a char is expected and then can be updated. Prints AB
+let 
+  var charVar := ('A')
+in
+ begin
+ 	put(charVar);
+ 	charVar := 'B';
+ 	put(charVar)	
+ end

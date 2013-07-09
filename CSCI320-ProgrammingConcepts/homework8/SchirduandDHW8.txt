@@ -1,0 +1,20 @@
+David Schirduan
+CSCI 320 Principles of Programming Languages
+Professor McCauley
+
+a.a.
+	Difference = 0
+	(the value is only changed within the method)
+a.b.
+	Difference = 0
+	(the value pointer is only changed within the method)
+a.c.
+	Difference = 0
+	(the difference is a synonym, and is only changed within the method)
+a.d.
+	Difference = 9
+	(the reference is changed universally throughout the program)
+a.e.
+	Difference = 9
+	(the value is changed only if it is referenced)
+	

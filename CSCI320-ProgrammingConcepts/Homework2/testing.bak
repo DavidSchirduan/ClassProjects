@@ -1,0 +1,6 @@
+#lang racket
+
+(define (test x)
+        (IF (ZERO?)
+            1
+            ("fail")))

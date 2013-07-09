@@ -1,0 +1,5 @@
+! test progran
+let
+  var n:= 2
+in
+  putint(n)

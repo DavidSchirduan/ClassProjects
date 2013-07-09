@@ -1,0 +1,4 @@
+The average for George, Scott is: 31.0
+The average for Smarty, Pants is: 100.0
+The average for Phil, Ochs is: 84.0
+Total Students: 3	Class Average: 71.67

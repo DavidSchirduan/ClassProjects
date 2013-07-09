@@ -1,0 +1,5 @@
+let
+  var x : array 5 of Char
+in
+  x[6] := '0'
+

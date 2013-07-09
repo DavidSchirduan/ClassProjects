@@ -1,0 +1,14 @@
+!Test: Use of a non-Integer expression as an expression of the for command.
+!Expected result: An error in compiling time.
+
+let 
+  var sum : Integer;
+  var A : Char
+in
+	begin
+		sum := 0;
+		for i from A to 20 do
+		begin
+			sum := sum + 1
+		end
+	end

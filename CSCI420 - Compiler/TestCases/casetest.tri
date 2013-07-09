@@ -1,0 +1,12 @@
+! test progran
+let
+  var n: Integer
+in
+  begin
+    n := 2;
+    case n of
+      1:  putint(61);
+      2:  putint(62);
+      3:  putint(63);
+      else: putint(64);
+  end

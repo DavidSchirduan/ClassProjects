@@ -1,0 +1,15 @@
+!Test: Check that the control variable inside the for command is 
+!treated as a constant -> Only the for command can modify it
+!Expected result: Compilation time error indicating that i is not a variable.
+
+let 
+  var sum : Integer
+in
+	begin
+		sum := 0;
+		for i from 10 to 20 do
+		begin
+			sum := sum + 1;
+			i := 1;
+		end
+	end

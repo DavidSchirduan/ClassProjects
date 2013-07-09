@@ -1,0 +1,11 @@
+//Author: David Schirduan
+//Homework 4 BadQueue
+
+Enqueue()
+Node n = new Node()
+
+n.next = front.next	(This format was allowed if the list is custom made)
+front.next = n
+
+big oh of 1 because it goes through 2 iterations each only one time.
+They are the same process as HW1, just with two extra nodes. 

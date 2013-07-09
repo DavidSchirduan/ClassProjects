@@ -1,0 +1,14 @@
+!Test: Compare two strings where the first is lexicographically first.
+!Expected result: print N
+
+let
+	var a1 : string 4; !array 4 of Integer; 
+	var a2 : string 4 !array 4 of Integer;
+in
+begin
+	a1 := 'abcd';
+	a2 := 'defg';
+	if (a1 << a2) then
+		put('N')
+	else ;
+end

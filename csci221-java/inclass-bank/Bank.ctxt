@@ -1,0 +1,20 @@
+#BlueJ class context
+comment0.target=Bank()
+comment0.text=\nConstructor\ for\ objects\ of\ class\ Bank\n\n
+comment1.params=name\ balance
+comment1.target=void\ addAccount(String,\ double)
+comment1.text=\naddAccount\n\n@param\ \ String\ name\ndouble\ beginning\ balance\n\n@return\ \ \ \ \ void\ \n\n
+comment2.params=name\ balance\ interest
+comment2.target=void\ addAccount(String,\ double,\ double)
+comment2.text=\naddAccount\n\n@param\ \ String\ name\ndouble\ beginning\ balance\ndouble\ beginning\ interest\ rate\n\n@return\ \ \ \ \ void\ \n\n
+comment3.params=amount
+comment3.target=void\ deposit(double)
+comment3.text=\ndeposit\n\n@param\ \ double\ amount\ \ \ \ amount\ being\ deposited\n\n@return\ \ \ \ \ double\ new\ balance\ \n\n
+comment4.params=amount
+comment4.target=void\ withdraw(double)
+comment4.text=\nwithdraw\n\n@param\ \ double\ amount\ \ \ \ amount\ being\ deposited\n\n@return\ \ \ \ \ double\ new\ balance\ \n\n
+comment5.target=void\ printAccounts()
+comment5.text=\nprintAccounts\n\n@param\ \ none\n\n@return\ none\n\n
+comment6.target=void\ applyInterest()
+comment6.text=\napplyInterest\n\n@param\ \ none\n\n@return\ none\n\n
+numComments=7

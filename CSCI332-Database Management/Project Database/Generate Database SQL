@@ -1,0 +1,186 @@
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
+
+DROP SCHEMA IF EXISTS `332Project` ;
+CREATE SCHEMA IF NOT EXISTS `332Project` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci ;
+USE `332Project` ;
+
+-- -----------------------------------------------------
+-- Table `332Project`.`Users`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `332Project`.`Users` ;
+
+CREATE  TABLE IF NOT EXISTS `332Project`.`Users` (
+  `idUsers` INT NOT NULL ,
+  `name` VARCHAR(45) NOT NULL ,
+  `password` VARCHAR(45) NULL ,
+  PRIMARY KEY (`idUsers`) )
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `332Project`.`Creators`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `332Project`.`Creators` ;
+
+CREATE  TABLE IF NOT EXISTS `332Project`.`Creators` (
+  `idCreators` INT NOT NULL ,
+  `name` VARCHAR(45) NOT NULL ,
+  `password` VARCHAR(45) NULL ,
+  PRIMARY KEY (`idCreators`) )
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `332Project`.`Quizzes`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `332Project`.`Quizzes` ;
+
+CREATE  TABLE IF NOT EXISTS `332Project`.`Quizzes` (
+  `idQuizzes` INT NOT NULL ,
+  `name` VARCHAR(45) NOT NULL ,
+  `numQuestions` INT NULL ,
+  `Creators_idCreators` INT NULL ,
+  `Creators_name` VARCHAR(45) NULL ,
+  PRIMARY KEY (`idQuizzes`) ,
+  INDEX `fk_Quizzes_Creators1_idx` (`Creators_idCreators` ASC) ,
+  CONSTRAINT `fk_Quizzes_Creators1`
+    FOREIGN KEY (`Creators_idCreators` )
+    REFERENCES `332Project`.`Creators` (`idCreators` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `332Project`.`Answers`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `332Project`.`Answers` ;
+
+CREATE  TABLE IF NOT EXISTS `332Project`.`Answers` (
+  `idAnswers` INT NOT NULL ,
+  `answerChoice` CHAR(1) NULL ,
+  PRIMARY KEY (`idAnswers`) )
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `332Project`.`Choices`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `332Project`.`Choices` ;
+
+CREATE  TABLE IF NOT EXISTS `332Project`.`Choices` (
+  `idChoices` INT NOT NULL ,
+  `userChoice` CHAR(1) NULL ,
+  `Users_idUsers` INT NULL ,
+  PRIMARY KEY (`idChoices`) ,
+  INDEX `fk_Choices_Users1_idx` (`Users_idUsers` ASC) ,
+  CONSTRAINT `fk_Choices_Users1`
+    FOREIGN KEY (`Users_idUsers` )
+    REFERENCES `332Project`.`Users` (`idUsers` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `332Project`.`Questions`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `332Project`.`Questions` ;
+
+CREATE  TABLE IF NOT EXISTS `332Project`.`Questions` (
+  `idQuestions` INT NOT NULL ,
+  `text` VARCHAR(45) NULL ,
+  `Answers_idAnswers` INT NULL ,
+  `Choices_idChoices` INT NULL ,
+  PRIMARY KEY (`idQuestions`) ,
+  INDEX `fk_Questions_Answers1_idx` (`Answers_idAnswers` ASC) ,
+  INDEX `fk_Questions_Choices1_idx` (`Choices_idChoices` ASC) ,
+  CONSTRAINT `fk_Questions_Answers1`
+    FOREIGN KEY (`Answers_idAnswers` )
+    REFERENCES `332Project`.`Answers` (`idAnswers` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Questions_Choices1`
+    FOREIGN KEY (`Choices_idChoices` )
+    REFERENCES `332Project`.`Choices` (`idChoices` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `332Project`.`Quizzes_has_Questions`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `332Project`.`Quizzes_has_Questions` ;
+
+CREATE  TABLE IF NOT EXISTS `332Project`.`Quizzes_has_Questions` (
+  `Quizzes_idQuizzes` INT NOT NULL ,
+  `Questions_idQuestions` INT NOT NULL ,
+  `PK` INT NOT NULL AUTO_INCREMENT ,
+  INDEX `fk_Quizzes_has_Questions_Questions1_idx` (`Questions_idQuestions` ASC) ,
+  INDEX `fk_Quizzes_has_Questions_Quizzes1_idx` (`Quizzes_idQuizzes` ASC) ,
+  PRIMARY KEY (`PK`) ,
+  CONSTRAINT `fk_Quizzes_has_Questions_Quizzes1`
+    FOREIGN KEY (`Quizzes_idQuizzes` )
+    REFERENCES `332Project`.`Quizzes` (`idQuizzes` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Quizzes_has_Questions_Questions1`
+    FOREIGN KEY (`Questions_idQuestions` )
+    REFERENCES `332Project`.`Questions` (`idQuestions` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `332Project`.`Groups`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `332Project`.`Groups` ;
+
+CREATE  TABLE IF NOT EXISTS `332Project`.`Groups` (
+  `idGroups` INT NOT NULL ,
+  `name` VARCHAR(45) NULL ,
+  `description` VARCHAR(45) NULL ,
+  `Creators_idCreators` INT NULL ,
+  PRIMARY KEY (`idGroups`) ,
+  INDEX `fk_Groups_Creators1_idx` (`Creators_idCreators` ASC) ,
+  CONSTRAINT `fk_Groups_Creators1`
+    FOREIGN KEY (`Creators_idCreators` )
+    REFERENCES `332Project`.`Creators` (`idCreators` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `332Project`.`Groups_has_Users`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `332Project`.`Groups_has_Users` ;
+
+CREATE  TABLE IF NOT EXISTS `332Project`.`Groups_has_Users` (
+  `Groups_idGroups` INT NOT NULL ,
+  `Users_idUsers` INT NOT NULL ,
+  `Primary Key` INT NOT NULL AUTO_INCREMENT ,
+  INDEX `fk_Groups_has_Users_Users1_idx` (`Users_idUsers` ASC) ,
+  INDEX `fk_Groups_has_Users_Groups1_idx` (`Groups_idGroups` ASC) ,
+  PRIMARY KEY (`Primary Key`) ,
+  CONSTRAINT `fk_Groups_has_Users_Groups1`
+    FOREIGN KEY (`Groups_idGroups` )
+    REFERENCES `332Project`.`Groups` (`idGroups` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Groups_has_Users_Users1`
+    FOREIGN KEY (`Users_idUsers` )
+    REFERENCES `332Project`.`Users` (`idUsers` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;

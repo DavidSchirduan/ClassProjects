@@ -1,0 +1,19 @@
+!Test: Variable initialized with a boolean value
+!Expected result: The bolVar is used where a boolean is expected. SN is printed.
+let 
+  var bolVar := (1=1)
+in
+ begin
+ 	if (bolVar) then
+ 		put('S')
+ 	else
+		put('N');
+		
+	bolVar := (1\=1);
+
+ 	if (bolVar) then
+ 		put('S')
+ 	else
+		put('N');
+		
+ end

@@ -1,0 +1,24 @@
+#BlueJ class context
+comment0.params=acctNumber\ customerName\ openingBalance
+comment0.target=Account(int,\ String,\ double)
+comment0.text=\nConstructor\ for\ objects\ of\ class\ Account\n\n
+comment1.params=acctNumber\ customerName\ openingBalance\ intRate
+comment1.target=Account(int,\ String,\ double,\ double)
+comment1.text=\nConstructor\ for\ objects\ of\ class\ Account\n\n
+comment2.target=int\ getAccountNumber()
+comment2.text=\ngetAccountNumber\n\n@param\ \ none\n@return\ int\ account\ number\ \n\n
+comment3.target=String\ getName()
+comment3.text=\ngetName\n\n@param\ \ none\n@return\ String\ name\ \n\n
+comment4.target=double\ getBalance()
+comment4.text=\ngetBalance\n\n@param\ \ none\n@return\ double\ balance\ \n\n
+comment5.params=amount
+comment5.target=void\ deposit(double)
+comment5.text=\ndeposit\n\n@param\ \ amount\ \ \ amount\ to\ be\ deposited\n@return\ double\ balance\ -\ new\ balance\n\n
+comment6.params=amount
+comment6.target=void\ withdraw(double)
+comment6.text=\nwithdraw\n\n@param\ \ amount\ \ \ amount\ to\ be\ withdrawn\n@return\ double\ balance\ -\ new\ balance\n\n
+comment7.target=double\ addInterest()
+comment7.text=\naddInterest\n\n@param\ \ none\n@return\ double\ balance\ -\ new\ balance\n\n
+comment8.target=void\ print()
+comment8.text=\nprint\n\n@param\ \ none\n@return\ none\n\n
+numComments=9

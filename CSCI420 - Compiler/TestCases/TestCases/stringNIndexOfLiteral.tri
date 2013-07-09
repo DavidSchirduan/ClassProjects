@@ -1,0 +1,12 @@
+!Test: Index a stringN literal
+!Expected result: No errors, the W gets printed
+
+let
+  !var my : string 9;
+  var c : Char
+in
+	begin
+		!my := "HI WORLD!";
+		c := "HI WORLD!"[3];
+		put(c);
+	end

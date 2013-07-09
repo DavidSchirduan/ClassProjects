@@ -1,0 +1,12 @@
+#lang racket
+;;; This is the code for homework 1.
+
+(define (p1 x y)
+ (+ (p2 x y) (p3 x y)))
+
+(define (p2 z w)
+ (* z w))
+
+(define (p3 a b)
+ (+ (p2 a) (p2 b)))
+

@@ -1,0 +1,55 @@
+//David Schirduan
+//quick binary search of objects
+//combo of pseudocode and Java
+
+
+Binary Search
+{
+	size = list.getsize();
+	left = 0;
+	right = size;
+	endloop = false;
+	key; 		//search item entered by user
+	
+	Search
+	{
+		while (endloop = false)		//beginning of loop
+		{	
+			if (right < left)
+			{
+			endloop = true
+			System.out.println ("Search was not found, or list is empty")
+			}
+			
+			else ()
+			{
+				mid = ((right-left)/2) + left;	
+				
+				else if (list[mid] < key)		//change lower limit
+				{
+					right = mid - 1;
+				}
+				
+				else if (list[mid] > key)		//change upper limit
+				{
+					left = mid + 1;
+				}
+				
+				else ()		//return the search index if it's equal
+				{
+					return list[mid];
+					endloop = true;
+				}
+				
+			}
+
+		}
+		
+	}
+
+	
+			
+				
+				
+				
+				

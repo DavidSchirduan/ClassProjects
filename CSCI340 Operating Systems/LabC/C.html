@@ -1,0 +1,376 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html> <head>
+<title>C For Java Programmers</title>
+</head>
+
+<body>
+
+<h1>C for Java Programmers</h1>
+
+<P>Due: 5:59:59 PM Friday January 28, 2011</P>
+
+<H3><FONT COLOR="#003300">1. C for Java programmers</FONT></H3>
+<p>This project, and some later projects in this class, will be done in the C language. There are two
+reasons for this. First, some of the things we want to study (e.g., in lab 2 the implementation of threads)
+require low-level manipulation of registers, stacks, pointers that would be awkward (at best) in
+a safe language like java. Second, C/C++ are still widely used languages, and learning them is a useful thing to
+do in its own right.</p>
+
+<p>If you are interested in why C looks like it does, we encourage you
+to look at Ritchie's <A
+HREF="http://cm.bell-labs.com/cm/cs/who/dmr/chist.html">history.</A>
+Here, perhaps, is the key quote: "Despite some aspects mysterious to
+the beginner and occasionally even to the adept, C remains a simple
+and small language, translatable with simple and small compilers. Its
+types and operations are well-grounded in those provided by real
+machines, and for people used to how computers work, learning the
+idioms for generating time- and space-efficient programs is not
+difficult. At the same time the language is sufficiently abstracted
+from machine details that program portability can be achieved."  </p>
+
+<p>Java borrows heavily from C syntax, and it is relatively easy to
+learn one language if you know the other well. At a high level, there are three
+major differences</p>
+
+<UL>
+  <LI><B>Safe v. unsafe, managed v. unmanaged memory</B> Java is a
+  safe language with garbage collection. C is an  unsafe language
+  with explicit memory management.
+
+  <p> By unsafe, we mean that programs can manipulate pointers in
+  arbitrary ways. e.g.,
+
+  <pre>
+  /* Dangerous pointer manipulation will compile in C. Don't do this! */
+   int dangerous = 0x102481a0;
+   int *pointer = (int *)dangerous; /* We can set a pointer to anything. Yikes! */
+   pointer = pointer + 39468;    /* We can do arbitrary math with poiners. Yikes! */
+   int value = *pointer;         /* Programs can read/write any address. Yikes! */
+  </pre>
+
+   <p>In  the second line above, we <I>cast</I> the int
+   <tt>dangerous</tt> into a new type, a pointer to an int (<tt>int
+   *</tt>). This should make you nervous. We are telling the compiler
+  to ignore the type information it has and to trust us. This type
+  of thing can lead to ugly bugs that are difficult to find
+   (especially since the programmer here has deliberately deactivated
+  the compiler's type safety checks.)</p>
+  
+  
+
+  or
+  <pre>
+  /* A horse is a horse of course of course unless the horse... */
+   Horse h;
+   Cow *c = (cow *)&amp;h; /* Set the pointer c to the address of h */
+  </pre>
+
+  <p>In C you must manually allocate and free objects on the heap:</p>
+
+   <pre>
+   #include &lt;assert.h&gt;
+   #include &lt;stdlib.h&gt;
+   ...
+   Cow *cow = (Cow *)malloc(sizeof(Cow));
+   cow_init(cow);
+   moo(cow);
+   ...
+   free(cow);
+  </pre>
+
+   <p> In the above snippet, we called <A
+  HREF="http://linux.die.net/man/3/malloc">malloc</A>, which is part
+  of the standard libaray <tt>stdlib.h</tt>, to allocate memory from
+  the heap, and
+  we called <A HREF="http://linux.die.net/man/3/free">free</A>, also part of stdlib, to free
+  memory when we were done with it. If you fail to call free() for
+  heap memory objects when you are finished with them, you will have a
+  <I>memory leak</I>. Conversely, if you continue to use a pointer
+  after freeing it, you will have a nasty bug:</p>
+
+  <pre>
+   #include &lt;assert.h&gt;
+   #include &lt;stdlib.h&gt;
+   ...
+   Horse *horse = (Horse *)malloc(sizeof(Horse));
+   ...
+   free(horse);
+   ...
+   neigh(horse); /* Using memory after it is freed = many nights suffering in lab */
+   </pre>
+
+  <p>
+   Many bad things can happen if you continue to access memory once
+   it has been freed. Calls that use <tt>horse</tt> may do strange
+   things since the memory location being pointed at might be
+   reallocated as another object and changed. Calls that use
+   <I>other</I>  objects may fail or do strange things, since the "horse" manipulations
+   will likely corrupt other data structures using the same memory.
+  Calls to malloc/free may fail or do strange things since
+  the calls using (freed) horse may corrupt the heap data structures
+  being stored at those locations. Etc. And to top it all of, these
+  bugs will manifest at strange times and different ways depending
+  on details of how the libary manages the heap, what calls to the
+   library are made in what order by the program, etc.</p>
+  
+
+  
+  </LI>
+
+  <LI><B>Modern v. old</B>. Some details differ between the languages
+  because programming has changed over the years. Java has better
+  built-in support for object oriented programming, exception
+  handling, type safety (i.e., today, we know how to do some things safely
+  that we used to have to do unsafely via casts), threads, etc. Java
+  has more extensive standard libraries for other useful things
+  (containers, window system access, etc.); similar libraries
+  exist in C for most of these things, but they are less standardized.
+
+  </LI>
+  
+  <LI><B>Cruft</B>. Though the overall syntax is similar, some details differ. E.g., 
+  how to include a library, 
+  how to compile a program, 
+  the definition of a string, 
+  what functions exist in what libraries, etc.  These differences are
+  not fundamentally <I>important</I>, but there a bunch of little
+  differences
+  that together probably are the main source of a learning curve
+  for someone proficient in one langage to become similarly proficient in the other.
+  </LI>
+
+  
+  </UL>
+
+  <p>Note that the above discussion focuses on the differences. Don't
+  lose sight of the fact that the languages are much more similar than
+  different. If you know Java well, you should be able to quickly pick
+  up C.</p>
+
+  <p>This lab is to help you get up to speed on the language before we
+  start using it for interesting things in the next lab. It has two
+  parts. First, do some reading of a more extensive (and better!)
+  discussion of the differences between the languages. Second, write a
+  few <b>simple</b> programs to begin practicing a few of the
+  mechanics. </p>
+
+
+
+<h2>1.1 Reading</h2>
+
+<p>Read the following discussion of C for Java programmers. 
+
+
+<UL>
+  <LI><A
+  HREF="http://www1.cs.columbia.edu/~hgs/teaching/ap/slides/CforJavaProgrammers.ppt">C
+  for Java Programmers (Columbia)</A> (Here's a local copy as a  <A HREF="http://www.cs.utexas.edu/users/dahlin/Classes/UGOS/reading/CforJavaProgrammers.pdf">.pdf</A>)</LI>
+  </UL>
+
+  <p>Here are some other useful resources.
+   (You are not required to read them. We include
+  them just for your convenience/reference if you want to learn more.)
+  You can find more with some
+  simple web searches.</p>
+  <UL>
+  <LI><A HREF="http://www.cs.cornell.edu/courses/cs414/2005sp/cforjava.pdf">C for Java Programmers (Cornell)</A></LI>
+  <LI><A HREF="http://www-plan.cs.colorado.edu/doerr/teaching/csci3308/javaforc/javaswitch.html">C for Java Programmers: A Small reference for easy switching (Colorado)</A></LI>
+  <LI><A HREF="http://cm.bell-labs.com/cm/cs/cbook/">Kernighan and Ritchie</A> (The definitive book)</LI>
+  <LI><A HREF="http://www.lysator.liu.se/c/bwk-tutor.html">Brian W. Kernighan -- Programming in C A Tutorial</A>
+  <LI><A HREF="http://www2.its.strath.ac.uk/courses/c/">C Programming</A> intro and tutorial</LI>
+  
+</UL>
+
+<H2>1.2 Some simple programs</H2>
+
+<p>To help you get familiar with C, in this lab you will write some extremely simple C programs.</p>
+
+<H4>Setup</H4>
+<p>We will grade this lab on the CS department <A
+HREF="http://www.cs.utexas.edu/facilities/accommodations/public_labs/unix_hosts_status/">public
+linux machines</A>.  Although most or all of this lab should "just
+work" in many other environments (cygwin, OSX, solaris, etc.), note
+that (1) the course staff will not be able to assist in setting up or
+debugging problems caused by differences in the environment and (2)
+statements like "it worked on my home machine" will not be considered
+in the grading process. If you choose to do development in an unsupported
+environment, it is <I>your responsibility</I> to leave adequate time
+to port your solution to the supported environment, test it there, and fix
+any problems that manifest.</p>
+
+
+<P>Download the file <A HREF="http://www.cs.utexas.edu/users/dahlin/Classes/UGOS/labs/labC.tar">
+http://www.cs.utexas.edu/users/dahlin/Classes/UGOS/labs/labC.tar</A>. Untar it. You
+should be able to make a test program that we have included called "hi".</P>
+
+<pre>
+> mkdir ~/cs372
+> cd ~/cs372
+> wget http://www.cs.utexas.edu/users/dahlin/Classes/UGOS/labs/labC.tar
+> tar -xvf labC.tar
+> cd labC
+> which make
+> /usr/bin/make
+> which gcc
+> /lusr/bin/gcc
+> make hi
+gcc  -g -Wall -Werror  -c -o hi.o hi.c
+gcc  -g -Wall -Werror  -o hi hi.o
+> ./hi
+So far so good.
+>
+</pre>
+
+<H4>(0) Name</H4>
+
+Before you start writing code, create a text file <tt>Name.txt</tt> in
+the lab directory and put your full name and UT EID in there.
+Include this file when you turn in your lab.
+
+
+<H4>(1) Hello</H4>
+
+Write program <tt>hello.c</tt> that prints out the string "Hello world\n".
+The makefile (<A HREF="GNUmakefile">GNUmakefile</A>) includes rules for compiling the source file
+<tt>hello.c</tt>  into the executable <I>hello</I>.
+
+<pre>
+> make hello
+...
+> ./hello
+Hello world
+</pre>
+
+
+<p>The first grading test in <A HREF="grade.sh">grade.sh</A> should now pass</p>
+<pre>
+> ./grade.sh
+...
+Output passed: 1 Output failed: 9
+</pre>
+
+<p>Note that passing the automated grading script grade.sh is a necessary
+but not sufficient condition for getting credit for a problem:</p>
+
+<UL>
+  <LI><I>Necessary.</I> If your
+program fails the grading script, it is by definition incorrect. If you believe
+there is a discrepency between the grading script and the specification
+in this file, please contact the course staff to resolve it.
+  </LI>
+<LI><I>Not sufficient</I>  
+You should also run your own tests.
+When grading, we may run other tests, look at the source code, etc. 
+  </LI>
+  </UL>
+
+<H4>(2) Loops </H4>
+
+Write program <I>words</I> that prints out the words from the command line on different lines
+
+<pre>
+> make words
+...
+> ./words To be or not to be? That is the question.
+To
+be
+or
+not
+to
+be?
+That
+is
+the
+question.
+</pre>
+
+  <p>The next test in grade.sh should pass (as should your own
+  tests.)</p>
+  
+  <H4>(3) Procedure calls</H4>
+Write a program fact.c that uses recursion to calculate and print the factorial of the positive integer value
+passed in or prints  the line"Huh?" if no argument is passed or if the first argument passed is not a positive integer.
+If the value passed in exceeds 12, you can simply print "Overflow".
+
+<pre>
+> make fact
+> ./fact one
+Huh?
+> ./fact 5
+120
+> ./fact 5.1
+Huh?
+</pre>
+
+  <p>The next test in grade.sh should pass (as should your own
+  tests.)</p>
+
+  <H4>(4) Headers, Linking, Structs</H4>
+
+<p>You can split your code across multiple source files.  Typically, a header file (e.g., "foo.h")
+  describes the procedures and variables exported by a source file (e.g., "foo.c"). To compile,
+  each .c file is typically compiled into an object file (e.g., "foo.o" and "bar.o") and then all object
+  files are linked together into one executable.</p>
+
+  <p>You can define a structure that groups together a number of fields of state. These
+  are like state variables in a class.</p>
+
+  <p>Notice that you can adopt a basic object oriented style of programming
+  in C (even without the syntactic sugar of C++) by defining a type and
+  the methods that operate on it in a .h file and a corresponding .c file.</p>
+
+  <p>We have provided <A href="point.h">point.h</A>, which defines a
+  type and structure for storing a point's position in 2d space, and
+  which defines the interface to a <I>translate()</I> function to move the point
+  to a new location and to determine the <I>distance()</I> between points.
+  Your job is to implement these functions in <A
+  HREF="point.c">point.c</A> so that the test program <A
+  HREF="testPoint.c">testPoint.c</A> works.</p>
+
+  <p>grade.sh should now pass the TestPoint test.</p>
+
+  
+
+<H4>(5) Basic data structures</H4>
+
+<p>Create a sortedPoints module that maintains a list of points sorted
+by their distance from the origin (0.0, 0.0) as defined by the
+interface <A HREF="sortedPoints.h">sortedPoints.h</A></p>
+
+<p>The simple test in <A
+HREF="testSortedPoints.c">testSortedPoints.c</A> should now run. You
+probably should write additional tests.</p>
+
+<p>Hint: You are allowed to add new functions or even fields to
+point.h and point.c. (You don't have to do this to solve this
+problem, but you may find it convenient to do so.)</p>
+
+<H2>2. Logistics</H2>
+
+<p>Although most of the projects for this class will be done in
+small teams, this project is do be done individually. The normal class
+rules
+on collaboration apply.</p>
+
+<p>Complete the project and turn it in using the <tt>turnin</tt>
+command. <tt>make handin</tt> will tar up the necessary
+files and turn thim in automatically for you. Inspect the output to
+verify
+that all files necessary to compile, run, and evaluate your work
+were included.
+
+
+<pre>
+% make handin
+</pre>
+
+
+
+
+
+
+
+<hr>
+<address></address>
+<!-- hhmts start --> Last modified: Mon Jan 17 13:31:31 CST 2011 <!-- hhmts end -->
+</body> </html>

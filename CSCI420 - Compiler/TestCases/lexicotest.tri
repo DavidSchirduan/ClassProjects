@@ -1,0 +1,12 @@
+let
+  var string1 : string 5;
+  var string2 : string 5
+in
+  begin
+    string1 := "Fghij";
+    string2 := "abcde";
+    if string1 << string2 then putint(1) else putint(0);
+    if string2 << string1 then putint(1) else putint(0);
+    if string1 << "abcdf" then putint(1) else putint(0);
+    if "abcdd" << string2 then putint(1) else putint(0)
+  end

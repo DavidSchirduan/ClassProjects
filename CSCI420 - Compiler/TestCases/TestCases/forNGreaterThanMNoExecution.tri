@@ -1,0 +1,15 @@
+!Test: Provide a range for the command that doesn't allow the execution of
+!the internal command
+!Expected result: The output of the program is only A
+let 
+  var sum : Integer
+in
+	begin
+		sum := 0;
+		for i from 50 to 40 do
+		begin
+			sum := sum + 1;
+			putint(sum)
+		end;
+		put('A')
+	end

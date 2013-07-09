@@ -1,0 +1,10 @@
+let
+  var name : array 4 of Char;
+  var i : Integer
+in
+  begin
+    i := 1;
+    name[i] := '0';
+    i := 4;    
+    name[i] := '0'    
+  end

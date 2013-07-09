@@ -1,0 +1,3 @@
+#lang racket
+;; computer square of a number
+(define (square x) (* x x))

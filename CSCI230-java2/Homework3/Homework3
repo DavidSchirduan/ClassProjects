@@ -1,0 +1,24 @@
+//Author: David Schirduan
+//Circular singly linked queue
+
+Node n = null
+
+
+Public insert()
+	if (rear == null)		//if nothing is in there, makes it the first thing
+		rear = n
+		n.next = rear
+		
+	else()
+		q = rear
+		
+		while (q.next != rear)
+			q = q.next
+			
+		q.next = n
+		n.next = rear
+		
+
+Public delete()
+	return rear.data
+	rear = rear.next

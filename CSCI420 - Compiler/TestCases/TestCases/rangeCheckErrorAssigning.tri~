@@ -1,0 +1,16 @@
+!Test: Try to access and out of bounds value of an array.
+!Expected result: Runtime error of range check.
+let 
+	var myArray : array 4 of Char;
+	var i : Integer
+in
+	begin
+		i := 4;
+		myArray[0] := 'A';
+		myArray[1] := 'B';
+		myArray[2] := 'C';
+		myArray[3] := 'D';
+		
+		put(myArray[3])
+	end
+	

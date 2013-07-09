@@ -1,0 +1,23 @@
+#BlueJ class context
+comment0.target=Money()
+comment1.params=userdollars\ usercents
+comment1.target=Money(int,\ int)
+comment10.params=m
+comment10.target=boolean\ equals(Money)
+comment11.target=String\ toString()
+comment12.target=void\ print()
+comment2.params=chgcents
+comment2.target=void\ setCents(int)
+comment3.params=chgdollars
+comment3.target=void\ setDollars(int)
+comment4.target=int\ getCents()
+comment5.target=int\ getDollars()
+comment6.params=m
+comment6.target=void\ increment(Money)
+comment7.params=m
+comment7.target=void\ decrement(Money)
+comment8.params=m
+comment8.target=Money\ add(Money)
+comment9.params=m
+comment9.target=Money\ subtract(Money)
+numComments=13

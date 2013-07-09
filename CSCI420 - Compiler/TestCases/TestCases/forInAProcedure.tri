@@ -1,0 +1,16 @@
+!Test: For in a producedure.
+!Expected result: The address of the control variable is relative to LB - checked with disassemble
+	let 
+		proc printIs() ~
+		begin
+		for i from 10 to 20 do
+		begin
+			putint(i);
+			puteol()			
+		end
+		end
+	in
+		begin
+			printIs()
+		end
+	

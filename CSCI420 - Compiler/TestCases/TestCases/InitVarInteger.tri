@@ -1,0 +1,11 @@
+!Test: Variable initialized with an integer value
+!Expected result: The intVar is used where a int is expected and then can be updated. 5 - 6 is printed
+let 
+  var intVar := (10/2)
+in
+ begin
+ 	putint(intVar);
+ 	put('-');
+ 	intVar := intVar + 1;
+ 	putint(intVar)	
+ end

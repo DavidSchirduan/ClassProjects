@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=class\ Rectangle
+comment0.text=\nclass\ Rectangle\nsubclass\ of\ Polygon\n\n@author\ Pharr\ \n@version\ 11/11/2009\n\n
+comment1.target=height
+comment2.params=h\ w
+comment2.target=Rectangle(double,double)
+comment2.text=\nConstructor\ for\ objects\ of\ class\ Rectangle\n\n
+comment3.target=width
+comment4.params=
+comment4.target=double\ area()
+comment4.text=\nmethod\ area()\n\n@param\ \ none\n@return\ \ height\ *\ width\ \n\n
+comment5.params=
+comment5.target=String\ toString()
+comment5.text=\nmethod\ toString()\n\n@param\ \ none\n@return\ \ string\ \n\n
+numComments=6

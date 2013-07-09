@@ -1,0 +1,3 @@
+for x from 6 to 8 do
+    putint(x)
+

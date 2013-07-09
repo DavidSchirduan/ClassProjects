@@ -1,0 +1,13 @@
+!Test: Create a variable of the new type and use it
+!Expected result: No errors the variable can be used without any problem.
+
+let
+  var my : string 9
+in
+	begin
+		my := "HI WORLD!";
+		for i from 0 to 8 do
+		begin
+			put(my[i])
+		end;
+	end

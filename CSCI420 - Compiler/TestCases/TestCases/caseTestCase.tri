@@ -1,0 +1,13 @@
+! This tests the case command (Ex.9.7)
+let 
+  var i: Integer;
+  var sum : Integer
+in
+ begin
+ sum := 15;
+ i := 2;
+ case i of
+   1: putint(1);
+   2: putint(sum);
+   else: putint(3)  ! should print 15
+ end

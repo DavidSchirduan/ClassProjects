@@ -1,0 +1,16 @@
+!Test: Create two variables of type stringN and copy one into the other
+!Expected result: No errors the variable can be used without any problem.
+
+let
+  var my : string 9;
+  var two : string 9
+in
+	begin
+		my := 'HI WORLD!';
+		two := my;
+		for i from 0 to 8 do
+		begin
+			put(my[i]);
+			put(two[i])
+		end;
+	end

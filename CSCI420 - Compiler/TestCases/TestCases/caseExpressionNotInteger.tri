@@ -1,0 +1,12 @@
+!Test: The variable or expression used as selection of the case is not of type integer
+!Expected result: Error in compiling time.
+let 
+  var A:Char;
+  var sum:Integer
+in
+	begin
+		case A of
+			1 : sum := 1;
+			2 : sum := 2;
+			else: sum := 99
+	end

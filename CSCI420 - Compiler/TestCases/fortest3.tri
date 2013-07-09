@@ -1,0 +1,13 @@
+let
+  var n: Integer;
+  var y: Integer
+in
+  begin
+    n := 1;
+    y := 2;
+    for x from 6 to 8 do
+      putint(x);
+    putint(n);
+    putint(y)
+  end
+

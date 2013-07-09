@@ -1,0 +1,10 @@
+!Test: For Ok.
+!Expected result: Print numbers from 1 to 3
+	begin
+		for i from 1 to 3 do
+		begin
+			putint(i);
+			puteol()			
+		end
+	end
+	

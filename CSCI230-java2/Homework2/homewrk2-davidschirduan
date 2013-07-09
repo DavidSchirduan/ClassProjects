@@ -1,0 +1,14 @@
+//Author: David Schirduan
+node n = New Node()
+
+q = list
+
+while (q. != end && q.keyfield < wantedkey)
+	q = q.next
+	
+if (q.keyfield < wantedkey)
+	n.next = q
+	n.back = q.back
+	q.back = n
+	(q.back).next = n
+	n.datalisting = newListing.deepCopy()

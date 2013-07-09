@@ -1,0 +1,279 @@
+echo -e '\E[31;47mCase Tests.'; tput sgr0
+
+java Triangle.Compiler TestCases/caseExpressionNotInteger.tri
+echo -e '\E[31;47m1 - !Expected result: Error in compiling time.'; tput sgr0
+read
+
+echo -e '\E[31;47mThe following runs and compiles enter 1-4,99.'; tput sgr0
+java Triangle.Compiler TestCases/caseOk.tri
+java TAM.Interpreter obj.tam
+
+java Triangle.Compiler TestCases/caseOnlyElse.tri
+echo -e '\E[31;47m2 - !Expected result: Compilation error, there must be at least one IL option'; tput sgr0
+read
+
+java Triangle.Compiler TestCases/caseTestCase.tri
+java TAM.Interpreter obj.tam
+echo -e '\E[31;47m3 - Should compile and print 15'; tput sgr0
+echo -e '\E[31;47mThis is the main check for 9.7'; tput sgr0
+read
+
+java Triangle.Compiler TestCases/caseWithoutElse.tri
+echo -e '\E[31;47m4 - !Expected result: Compilation error Else expected.'; tput sgr0
+read
+
+java Triangle.Compiler TestCases/caseWithRepeatedIL.tri
+echo -e '\E[31;47m5 - !Expected result: Compilation error indicating the problem.'; tput sgr0
+read
+
+echo -e '\E[31;47mFor Tests.'; tput sgr0
+
+java Triangle.Compiler TestCases/forInAProcedure.tri
+java TAM.Interpreter obj.tam
+echo -e '\E[31;47m6 - Should compile and print 10 through 20'; tput sgr0
+read
+
+java Triangle.Compiler TestCases/forInvalidTypeExpressions.tri
+echo -e '\E[31;47m7 - An error in compiling time.'; tput sgr0
+read
+
+java Triangle.Compiler TestCases/forMEqualN.tri
+java TAM.Interpreter obj.tam
+echo -e '\E[31;47m8 - !Expected result: Print number 1.'; tput sgr0
+read
+
+java Triangle.Compiler TestCases/forModificationOfControlVariable.tri
+echo -e '\E[31;47m9 - !Expected result: Compilation time error indicating that i is not a variable.'; tput sgr0
+read
+
+java Triangle.Compiler TestCases/forNGreaterThanMNoExecution.tri
+java TAM.Interpreter obj.tam
+echo -e '\E[31;47m10 - !Expected result: The output of the program is only A.'; tput sgr0
+read
+
+java Triangle.Compiler TestCases/forNotExpressionsNotConstants.tri
+java TAM.Interpreter obj.tam
+echo -e '\E[31;47m11 - !Expected result: Print the number from 5 to 20.'; tput sgr0
+echo -e '\E[31;47mThis is the an extra check for 9.6(b)'; tput sgr0
+read
+
+java Triangle.Compiler TestCases/forOk.tri
+java TAM.Interpreter obj.tam
+echo -e '\E[31;47m12 - !Expected result: Print numbers from 1 to 3'; tput sgr0
+read
+
+java Triangle.Compiler TestCases/forTestCase.tri
+java TAM.Interpreter obj.tam
+echo -e '\E[31;47mThis is the an main check for 9.6(b)'; tput sgr0
+echo -e '\E[31;47m13 - Should compile and print 12'; tput sgr0
+read
+
+echo -e '\E[31;47mInitialization Declaration Tests.'; tput sgr0
+
+java Triangle.Compiler TestCases/InitVarBoolean.tri
+java TAM.Interpreter obj.tam
+echo -e '\E[31;47m14 - SN is printed'; tput sgr0
+read
+
+java Triangle.Compiler TestCases/InitVarChar.tri
+java TAM.Interpreter obj.tam
+echo -e '\E[31;47m15 - AB is printed'; tput sgr0
+read
+
+java Triangle.Compiler TestCases/InitVarInteger.tri
+java TAM.Interpreter obj.tam
+echo -e '\E[31;47m16 - 5 - 6 is printed'; tput sgr0
+read
+
+echo -e '\E[31;47mLexical String Tests.'; tput sgr0
+
+java Triangle.Compiler TestCases/lexCompEqualStrings.tri
+java TAM.Interpreter obj.tam
+echo -e '\E[31;47m17 - S is printed'; tput sgr0
+echo -e '\E[31;47mQuestion - I am assuming the specification of the << operator means less but the test case has it as equal '; tput sgr0
+read
+
+java Triangle.Compiler TestCases/lexCompFirstStringFirst.tri
+java TAM.Interpreter obj.tam
+echo -e '\E[31;47m18 - N is printed'; tput sgr0
+read
+
+java Triangle.Compiler TestCases/lexCompSecondStringFirst.tri
+java TAM.Interpreter obj.tam
+echo -e '\E[31;47m19 - F is printed'; tput sgr0
+read
+
+echo -e '\E[31;47mRangecheck Tests.'; tput sgr0
+
+java Triangle.Compiler TestCases/rangeCheckErrorAssigning.tri
+java TAM.Interpreter obj.tam
+echo -e '\E[31;47m20 - The previous will compile but will give a rangecheck error'; tput sgr0
+read
+
+
+java Triangle.Compiler TestCases/rangeCheck2ndErrorAssigning.tri
+java TAM.Interpreter obj.tam
+echo -e '\E[31;47m21 - The previous will compile but will give a rangecheck error'; tput sgr0
+echo -e '\E[31;47mThis is an extra check for 9.15'; tput sgr0
+read
+
+
+java Triangle.Compiler TestCases/rangeCheckErrorUsingInExpression.tri
+java TAM.Interpreter obj.tam
+echo -e '\E[31;47m22 - The previous will compile but will give a rangecheck error'; tput sgr0
+read
+
+
+java Triangle.Compiler TestCases/simple1.tri
+java TAM.Interpreter obj.tam
+echo -e '\E[31;47m23 - The previous will compile but will give a rangecheck error'; tput sgr0
+read
+
+
+java Triangle.Compiler TestCases/rangeCheckTestCase.tri
+java TAM.Interpreter obj.tam
+echo -e '\E[31;47m24 - The previous will compile but will give a rangecheck error'; tput sgr0
+echo -e '\E[31;47mThis is the main check for 9.15'; tput sgr0
+read
+
+java Triangle.Compiler TestCases/rangeCheckOkAssigning.tri
+java TAM.Interpreter obj.tam
+echo -e '\E[31;47m25 - Prints D'; tput sgr0
+echo -e '\E[31;47mThis is an extra check for 9.15'; tput sgr0
+read
+
+echo -e '\E[31;47mRepeat Tests.'; tput sgr0
+
+java Triangle.Compiler TestCases/repeatAtLeastExecuteOnceFalseExpression.tri
+java TAM.Interpreter obj.tam
+echo -e '\E[31;47m26 - 2 is printed'; tput sgr0
+#echo -e '\E[31;47mBug'; tput sgr0
+read
+
+java Triangle.Compiler TestCases/repeatIncorrectTypeExpression.tri
+echo -e '\E[31;47m27 - Does not compile'; tput sgr0
+read
+
+java Triangle.Compiler TestCases/repeatOk.tri
+java TAM.Interpreter obj.tam
+echo -e '\E[31;47m28 - Print the numbers 1-20'; tput sgr0
+echo -e '\E[31;47mThis is the an extra check for 9.6(a)'; tput sgr0
+read
+
+java Triangle.Compiler TestCases/repeatFalse.tri
+java TAM.Interpreter obj.tam
+echo -e '\E[31;47m29 - Print the number 2'; tput sgr0
+echo -e '\E[31;47mThis is the an extra check for 9.6(a)'; tput sgr0
+read
+
+
+java Triangle.Compiler TestCases/repeatTestCase.tri
+java TAM.Interpreter obj.tam
+echo -e '\E[31;47m30 - Prints 11'; tput sgr0
+echo -e '\E[31;47mThis is the main check for 9.6(a)'; tput sgr0
+read
+
+
+echo -e '\E[31;47mString Tests.'; tput sgr0
+
+
+java Triangle.Compiler TestCases/stringNAssignToAnotherDifferentN.tri
+echo -e '\E[31;47m31 - Compilation Error'; tput sgr0
+echo -e '\E[31;47mThe test case says it will not compile but I do not see it'; tput sgr0
+read
+
+
+java Triangle.Compiler TestCases/stringNAssignToAnotherSameN.tri
+java TAM.Interpreter obj.tam
+echo -e '\E[31;47m32 - HHII  WWOORRLLDD!!'; tput sgr0
+read
+
+java Triangle.Compiler TestCases/stringNDeclarationAndUse.tri
+java TAM.Interpreter obj.tam
+echo -e '\E[31;47m33 - HI WORLD!'; tput sgr0
+read
+
+java Triangle.Compiler TestCases/stringNDistinctOperator.tri
+java TAM.Interpreter obj.tam
+echo -e '\E[31;47m34 - N is printed'; tput sgr0
+read
+
+java Triangle.Compiler TestCases/stringNEqualOperator.tri
+java TAM.Interpreter obj.tam
+echo -e '\E[31;47m35 - E is printed'; tput sgr0
+read
+
+java Triangle.Compiler TestCases/stringNIndexOfLiteral.tri
+#java TAM.Interpreter obj.tam
+echo -e '\E[31;47m36 - W is printed'; tput sgr0
+echo -e '\E[31;47mBug - does not compile - index on string literal'; tput sgr0
+read
+
+java Triangle.Compiler TestCases/stringNTestCase.tri
+java TAM.Interpreter obj.tam
+echo -e '\E[31;47m37 - b00 is printed'; tput sgr0
+echo -e '\E[31;47mThis is the main check for 9.12a'; tput sgr0
+read
+
+echo -e '\E[31;47mOriginal Tests.'; tput sgr0
+
+java Triangle.Compiler repeattest.tri
+java TAM.Interpreter obj.tam
+echo -e '\E[31;47m38 - 12345678910 is printed'; tput sgr0
+read
+
+java Triangle.Compiler rangetest.tri
+java TAM.Interpreter obj.tam
+echo -e '\E[31;47m39 - range check error'; tput sgr0
+read
+
+java Triangle.Compiler rangechecktest.tri
+java TAM.Interpreter obj.tam
+echo -e '\E[31;47m39 - range check error'; tput sgr0
+read
+
+java Triangle.Compiler rangecheck2test.tri
+java TAM.Interpreter obj.tam
+echo -e '\E[31;47m40 - range check error'; tput sgr0
+read
+
+java Triangle.Compiler casetest.tri
+java TAM.Interpreter obj.tam
+echo -e '\E[31;47m41 - prints 62'; tput sgr0
+read
+
+java Triangle.Compiler fortest.tri
+java TAM.Interpreter obj.tam
+echo -e '\E[31;47m42 - prints 678'; tput sgr0
+read
+
+java Triangle.Compiler fortest2.tri
+java TAM.Interpreter obj.tam
+echo -e '\E[31;47m43 - prints 678'; tput sgr0
+read
+
+java Triangle.Compiler fortest3.tri
+java TAM.Interpreter obj.tam
+echo -e '\E[31;47m44 - prints 67812'; tput sgr0
+read
+
+java Triangle.Compiler initvartest.tri
+java TAM.Interpreter obj.tam
+echo -e '\E[31;47m45 - prints 2'; tput sgr0
+read
+
+java Triangle.Compiler lexicotest.tri
+java TAM.Interpreter obj.tam
+echo -e '\E[31;47m46 - prints 1011'; tput sgr0
+read
+
+java Triangle.Compiler stringtest.tri
+java TAM.Interpreter obj.tam
+echo -e '\E[31;47m47 - prints 1'; tput sgr0
+read
+
+java Triangle.Compiler stringtest2.tri
+java TAM.Interpreter obj.tam
+echo -e '\E[31;47m48 - prints a'; tput sgr0
+read
+

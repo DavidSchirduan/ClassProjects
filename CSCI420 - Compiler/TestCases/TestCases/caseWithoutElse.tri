@@ -1,0 +1,11 @@
+!Test: Case command without an else option
+!Expected result: Compilation error Else expected.
+let 
+  var i:Integer;
+  var sum:Integer
+in
+	begin
+		case i of
+			1 : sum := 1;
+			2 : sum := 2;
+	end

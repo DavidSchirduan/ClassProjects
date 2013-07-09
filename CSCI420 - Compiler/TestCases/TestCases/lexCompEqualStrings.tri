@@ -1,0 +1,15 @@
+!Test: Compare two strings where both strings are lexicographically equal.
+!Expected result: print S
+
+let
+	var a1 : string 4; 
+	var a2 : string 4
+in
+begin
+	a1 := "defg";
+	a2 := "defg";
+	if (a1 << a2) then
+		put('S')
+	else
+	;
+end
